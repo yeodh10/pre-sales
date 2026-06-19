@@ -109,6 +109,13 @@ export default function RecommendationReport({
             <p className="mt-3 text-sm leading-relaxed text-slate-700">
               {result.summary}
             </p>
+            {result.model_used === "rule-based fallback" && (
+              <p className="mt-2 rounded-md bg-slate-100 px-3 py-2 text-[11px] text-slate-600">
+                ⚙️ 이 결과는 <strong>룰 기반 폴백 엔진</strong>으로 생성되었습니다
+                (LLM API 키 미설정 또는 호출 실패). 결정론적 규칙 기반이라 항상
+                동일한 결과를 보장하지만, LLM 추론 대비 맥락 반영은 제한적입니다.
+              </p>
+            )}
           </div>
           <div className="no-print flex shrink-0 gap-2">
             <button

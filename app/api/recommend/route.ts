@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { generateRecommendation } from "@/lib/anthropic";
+import { ruleBasedRecommendation } from "@/lib/ruleEngine";
 import { sanitizeRecommendation } from "@/lib/validation";
 import type { CustomerProfile } from "@/lib/types";
 
@@ -24,6 +25,11 @@ export async function POST(req: Request) {
     );
   }
 
+  // API 키가 없으면 LLM 호출을 시도하지 않고 곧바로 룰 엔진 폴백.
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return NextResponse.json(ruleBasedRecommendation(profile));
+  }
+
   try {
     const raw = await generateRecommendation(profile);
     const { result, report } = sanitizeRecommendation(raw);
@@ -36,9 +42,9 @@ export async function POST(req: Request) {
     }
     return NextResponse.json(result);
   } catch (err) {
-    const message =
-      err instanceof Error ? err.message : "추천 생성 중 알 수 없는 오류가 발생했습니다.";
-    console.error("[/api/recommend]", err);
-    return NextResponse.json({ error: message }, { status: 500 });
+    // LLM 호출 실패(네트워크/레이트리밋/파싱 등) 시에도 데모가 멈추지 않도록
+    // 룰 기반 폴백으로 응답한다.
+    console.error("[/api/recommend] LLM 실패, 룰 엔진으로 폴백:", err);
+    return NextResponse.json(ruleBasedRecommendation(profile));
   }
 }

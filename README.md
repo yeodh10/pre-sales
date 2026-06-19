@@ -32,6 +32,19 @@ npm run dev
 - [x] **Phase 3** — 제안 요약 렌더, 컴플라이언스 매핑 표, KB 외 product_id 검증/필터링, Markdown 다운로드, 인쇄/PDF 저장 스타일
 - [x] **Phase 4** — ISMS-P 통제항목 카탈로그 + LLM 컨텍스트 주입 + `control_id` 인용,
   KB 외 통제 ID 환각 차단, 매핑 카드에 통제 명칭·영역·요지·공식 출처 부착
+- [x] **데모 안정화** — 룰 기반 폴백 추천 엔진 (`lib/ruleEngine.ts`).
+  API 키 미설정/LLM 호출 실패 시 결정론적 규칙으로 추천 생성 → 데모가 멈추지 않음
+
+## 추천 엔진 (LLM + 룰 폴백)
+
+`POST /api/recommend`는 다음 순서로 동작합니다.
+
+1. `ANTHROPIC_API_KEY`가 있으면 Claude(`claude-sonnet-4-6`)로 추천 생성
+2. 키가 없거나 LLM 호출이 실패하면 **룰 기반 폴백 엔진**으로 결정론적 추천 생성
+   (결과의 `model_used`가 `"rule-based fallback"`으로 표시되고 UI에 안내 배너 노출)
+
+덕분에 면접장 네트워크 문제나 키 누락에도 데모가 항상 동작합니다.
+LLM 경로는 더 풍부한 맥락 반영, 룰 경로는 일관성·무비용·오프라인 보장이 강점입니다.
 
 ## 컴플라이언스 KB
 
