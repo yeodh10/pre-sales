@@ -40,7 +40,7 @@ export default function Home() {
     <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
       <div className="space-y-8">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">
+          <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
             고객 프로파일 입력
           </h1>
           <p className="mt-1 text-sm text-slate-600">

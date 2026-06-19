@@ -75,7 +75,9 @@ export default function ProductsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">안랩 제품 카탈로그</h1>
+        <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
+          안랩 제품 카탈로그
+        </h1>
         <p className="mt-1 text-sm text-slate-600">
           추천 엔진이 근거로 사용하는 안랩 제품 KB입니다. 총 {products.length}개
           제품·서비스를 카테고리별로 정리했으며, 각 항목은 공식 페이지 출처를
@@ -107,7 +109,8 @@ export default function ProductsPage() {
               {items.map((p) => (
                 <article
                   key={p.id}
-                  className="flex flex-col rounded-lg border border-slate-200 bg-white p-5"
+                  id={p.id}
+                  className="flex scroll-mt-24 flex-col rounded-lg border border-slate-200 bg-white p-5 target:ring-2 target:ring-brand"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>

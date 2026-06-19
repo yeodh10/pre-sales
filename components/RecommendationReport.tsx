@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import productsKb from "@/data/ahnlab-products.json";
 import {
   COMPLIANCE_OPTIONS,
@@ -384,9 +385,18 @@ function ProductCard({ rec }: { rec: ProductRecommendation }) {
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <h4 className="text-sm font-semibold text-slate-900">
-              {displayName}
-            </h4>
+            {p ? (
+              <Link
+                href={`/products#${rec.product_id}`}
+                className="text-sm font-semibold text-slate-900 hover:text-brand hover:underline"
+              >
+                {displayName}
+              </Link>
+            ) : (
+              <h4 className="text-sm font-semibold text-slate-900">
+                {displayName}
+              </h4>
+            )}
             {enName && enName !== displayName && (
               <span className="text-xs text-slate-400">{enName}</span>
             )}

@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className="min-h-screen">
         <header className="border-b border-slate-200 bg-white">
-          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 sm:px-6 sm:py-4">
             <Link href="/" className="flex items-center gap-3">
               <div className="h-8 w-8 rounded-md bg-brand text-white grid place-items-center font-bold">
                 A
@@ -64,8 +64,10 @@ export default function RootLayout({
             </div>
           </div>
         </header>
-        <main className="mx-auto max-w-6xl px-6 py-8">{children}</main>
-        <footer className="mx-auto max-w-6xl px-6 py-8 text-xs text-slate-500">
+        <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
+          {children}
+        </main>
+        <footer className="mx-auto max-w-6xl px-4 py-8 text-xs text-slate-500 sm:px-6">
           공개 자료 기반의 비공식 학습용 데모입니다. 실제 도입 검토는 안랩 공식 SE의
           확인을 거쳐 주십시오. 경쟁사 비교는 공개 정보에 한하며 과장·비방은 포함하지
           않습니다.
