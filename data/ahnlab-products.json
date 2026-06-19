@@ -24,7 +24,8 @@
       "solves": ["랜섬웨어", "악성코드", "엔드포인트 기본 보호"],
       "fits_industry": ["제조", "금융", "공공", "유통", "중견·중소"],
       "compliance_support": [
-        "ISMS-P 2.10.1 악성코드 통제",
+        "ISMS-P 2.10.1 보안시스템 운영",
+        "ISMS-P 2.10.6 업무용 단말기기 보안",
         "개인정보보호법 안전성 확보조치 (단말 보호)"
       ],
       "source_url": "https://www.ahnlab.com/en/product/anti-malware"
@@ -44,8 +45,9 @@
       "solves": ["엔드포인트 보안 분산 운영", "에이전트 충돌", "관리 비용 증가"],
       "fits_industry": ["제조", "금융", "공공", "유통", "대기업"],
       "compliance_support": [
-        "ISMS-P 2.10.1 악성코드 통제",
-        "ISMS-P 2.10.6 업무용 단말기기 보안"
+        "ISMS-P 2.10.1 보안시스템 운영",
+        "ISMS-P 2.10.6 업무용 단말기기 보안",
+        "ISMS-P 2.10.7 보조저장매체 관리"
       ],
       "source_url": "https://mglobal.ahnlab.com/site/product/productSubDetail.do?prodSeq=11422"
     },
@@ -86,7 +88,7 @@
       "solves": ["지능형 지속 위협(APT)", "이메일 기반 침투", "제로데이 악성코드", "내부 확산"],
       "fits_industry": ["금융", "공공", "대기업", "제조"],
       "compliance_support": [
-        "ISMS-P 2.10.2 클라우드/외부 위협 차단",
+        "ISMS-P 2.11.1 사고 예방 및 대응체계 구축",
         "ISMS-P 2.11.3 이상행위 분석 및 모니터링",
         "전자금융감독규정 침해 대응 요건"
       ],
@@ -108,7 +110,7 @@
       "solves": ["경계 방어", "외부 침입", "VPN 보안", "C&C 통신"],
       "fits_industry": ["제조", "금융", "공공", "유통", "중견·중소"],
       "compliance_support": [
-        "ISMS-P 2.6.1 네트워크 접근통제",
+        "ISMS-P 2.6.1 네트워크 접근",
         "ISMS-P 2.6.7 인터넷 접속 통제",
         "망분리 가이드라인 (경계 보호)"
       ],
@@ -129,8 +131,8 @@
       "solves": ["취약점 익스플로잇", "웹 공격", "악성코드 전파", "내부 위협 차단"],
       "fits_industry": ["제조", "금융", "공공", "유통"],
       "compliance_support": [
-        "ISMS-P 2.6.1 네트워크 접근통제",
-        "ISMS-P 2.10.2 외부 위협 차단"
+        "ISMS-P 2.6.1 네트워크 접근",
+        "ISMS-P 2.11.2 취약점 점검 및 조치"
       ],
       "source_url": "https://www.ahnlab.com/kr/site/product/productView.do?prodSeq=131"
     },
@@ -149,7 +151,7 @@
       "solves": ["DDoS 공격", "서비스 가용성 위협", "응답 지연"],
       "fits_industry": ["금융", "공공", "유통", "이커머스"],
       "compliance_support": [
-        "ISMS-P 2.9.6 시스템 가용성 확보",
+        "ISMS-P 2.9.3 백업 및 복구관리 (가용성 확보)",
         "전자금융감독규정 가용성 요건"
       ],
       "source_url": "https://www.ahnlab.com/en/product/all-products-and-services"
@@ -169,8 +171,9 @@
       "solves": ["보안 이벤트 분산", "관제 인력 부족", "통합 가시성 부재"],
       "fits_industry": ["금융", "공공", "대기업", "제조"],
       "compliance_support": [
-        "ISMS-P 2.11.3 이상행위 분석 및 모니터링",
-        "ISMS-P 2.11.5 사고 대응 훈련 및 개선"
+        "ISMS-P 2.9.4 로그 및 접속기록 관리",
+        "ISMS-P 2.9.5 로그 및 접속기록 점검",
+        "ISMS-P 2.11.3 이상행위 분석 및 모니터링"
       ],
       "source_url": "https://www.ahnlab.com/en/product/all-products-and-services"
     },
@@ -191,7 +194,8 @@
       "fits_industry": ["제조 (OT)", "에너지", "유틸리티", "유통 POS", "금융 ATM"],
       "compliance_support": [
         "망분리 가이드라인 (폐쇄망 단말 보호)",
-        "ISMS-P 2.10.1 악성코드 통제 (OT 적용)",
+        "ISMS-P 2.10.1 보안시스템 운영 (OT 적용)",
+        "ISMS-P 2.10.8 패치관리 (제한적 OT 환경)",
         "주요정보통신기반시설 보호지침"
       ],
       "source_url": "https://mglobal.ahnlab.com/site/product/productSubDetail.do?prodSeq=10003"
@@ -232,7 +236,8 @@
       "fits_industry": ["제조 (OT)", "에너지", "공공 인프라"],
       "compliance_support": [
         "주요정보통신기반시설 보호지침 (정기 점검)",
-        "ISMS-P 2.10.1 악성코드 통제 (OT 적용)"
+        "ISMS-P 2.10.1 보안시스템 운영 (OT 적용)",
+        "ISMS-P 2.11.2 취약점 점검 및 조치"
       ],
       "source_url": "https://blog.ahnlab.com/2966"
     },
@@ -272,8 +277,10 @@
       "solves": ["관제 인력 부족", "24시간 모니터링 부재", "전문성 부족"],
       "fits_industry": ["금융", "공공", "제조", "중견·중소"],
       "compliance_support": [
+        "ISMS-P 2.11.1 사고 예방 및 대응체계 구축",
         "ISMS-P 2.11.3 이상행위 분석 및 모니터링",
-        "ISMS-P 2.11.5 사고 대응 훈련 및 개선",
+        "ISMS-P 2.11.4 사고 대응 훈련 및 개선",
+        "ISMS-P 2.11.5 사고 대응 및 복구",
         "전자금융감독규정 관제 요건"
       ],
       "source_url": "https://mglobal.ahnlab.com/site/product/productSubDetail.do?prodSeq=1000"

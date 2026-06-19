@@ -29,9 +29,10 @@ export async function POST(req: Request) {
     const { result, report } = sanitizeRecommendation(raw);
     if (
       report.droppedRecommendations.length > 0 ||
-      report.droppedComplianceIds.length > 0
+      report.droppedComplianceProductIds.length > 0 ||
+      report.droppedControlIds.length > 0
     ) {
-      console.warn("[/api/recommend] dropped invalid product_ids:", report);
+      console.warn("[/api/recommend] dropped invalid ids:", report);
     }
     return NextResponse.json(result);
   } catch (err) {

@@ -26,7 +26,21 @@ npm run dev
 - [x] **Phase 1** — Next.js + Tailwind 골격, 안랩 제품 KB(JSON), 고객 프로파일 입력 폼
 - [x] **Phase 2** — 추천 엔진 (`/api/recommend`) + Claude Sonnet tool_use 강제
 - [x] **Phase 3** — 제안 요약 렌더, 컴플라이언스 매핑 표, KB 외 product_id 검증/필터링, Markdown 다운로드, 인쇄/PDF 저장 스타일
-- [ ] Phase 4 (Stretch) — ISMS-P RAG 인용, 제안서 PDF 템플릿 다듬기
+- [x] **Phase 4** — ISMS-P 통제항목 카탈로그 + LLM 컨텍스트 주입 + `control_id` 인용,
+  KB 외 통제 ID 환각 차단, 매핑 카드에 통제 명칭·영역·요지·공식 출처 부착
+
+## 컴플라이언스 KB
+
+`data/compliance/ismsp-controls.json` — ISMS-P 인증기준 「2. 보호대책 요구사항」
+중 안랩 제품과 연관 깊은 16개 통제항목을 정리.
+
+- 2.6 접근통제: 2.6.1, 2.6.7
+- 2.9 시스템·서비스 운영관리: 2.9.3, 2.9.4, 2.9.5, 2.9.6
+- 2.10 시스템·서비스 보안관리: 2.10.1, 2.10.2, 2.10.6, 2.10.7, 2.10.8
+- 2.11 사고 예방·대응: 2.11.1, 2.11.2, 2.11.3, 2.11.4, 2.11.5
+
+LLM에게 KB와 함께 컨텍스트로 제공되어 `compliance_mapping.control_id`로
+정확한 통제 ID를 인용하도록 강제하고, 검증 레이어가 카탈로그 외 ID는 제거합니다.
 
 ## 제품 KB
 

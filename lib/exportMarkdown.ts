@@ -7,6 +7,7 @@ import {
   SIZE_OPTIONS,
 } from "./options";
 import type { RecommendationResult } from "./recommendation";
+import { ISMSP_META, lookupControl } from "./ismsp";
 
 interface KbItem {
   id: string;
@@ -121,15 +122,27 @@ export function buildMarkdown(
   if (result.compliance_mapping.length > 0) {
     lines.push("## 3. 컴플라이언스 매핑");
     lines.push("");
-    lines.push("| 요구 / 통제항목 | 충족 기여 제품 |");
-    lines.push("| --- | --- |");
+    lines.push(`> 출처: ${ISMSP_META.source} · ${ISMSP_META.official_url}`);
+    lines.push("");
     for (const row of result.compliance_mapping) {
+      const ctrl = lookupControl(row.control_id);
       const names = row.covered_by
         .map((id) => PRODUCT_BY_ID.get(id)?.name_ko ?? id)
         .join(", ");
-      lines.push(`| ${row.requirement} | ${names} |`);
+      if (ctrl) {
+        lines.push(`### \`${ctrl.id}\` ${ctrl.name}`);
+        lines.push(`- 영역: ${ctrl.category}`);
+        lines.push(`- 통제 요지: ${ctrl.summary}`);
+        lines.push(`- 충족 기여 제품: ${names}`);
+      } else {
+        lines.push(`### ${row.requirement}`);
+        lines.push(`- 충족 기여 제품: ${names}`);
+        lines.push(
+          `- _주: ISMS-P 통제항목 카탈로그에서 자동 매칭되지 않은 요구사항_`,
+        );
+      }
+      lines.push("");
     }
-    lines.push("");
   }
 
   if (result.risks_and_notes.length > 0) {

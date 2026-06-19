@@ -8,6 +8,7 @@ import {
   SIZE_OPTIONS,
 } from "@/lib/options";
 import { buildMarkdown, downloadMarkdown } from "@/lib/exportMarkdown";
+import { ISMSP_META, lookupControl } from "@/lib/ismsp";
 import type {
   ProductRecommendation,
   RecommendationResult,
@@ -168,46 +169,75 @@ export default function RecommendationReport({
 
       {result.compliance_mapping.length > 0 && (
         <section className="rounded-lg border border-slate-200 bg-white p-5">
-          <h3 className="mb-3 text-sm font-semibold text-slate-800">
-            컴플라이언스 매핑
-          </h3>
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
-                  <th className="py-2 pr-4 font-medium">요구 / 통제항목</th>
-                  <th className="py-2 font-medium">충족 기여 제품</th>
-                </tr>
-              </thead>
-              <tbody>
-                {result.compliance_mapping.map((row, i) => (
-                  <tr
-                    key={i}
-                    className="border-b border-slate-100 last:border-b-0"
-                  >
-                    <td className="py-2 pr-4 align-top text-slate-700">
-                      {row.requirement}
-                    </td>
-                    <td className="py-2 align-top">
-                      <div className="flex flex-wrap gap-1.5">
-                        {row.covered_by.map((id) => {
-                          const p = PRODUCT_BY_ID.get(id);
-                          return (
-                            <span
-                              key={id}
-                              className="rounded-md bg-brand-light px-2 py-0.5 text-xs font-medium text-brand-dark"
-                            >
-                              {p?.name_ko ?? id}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="mb-3 flex items-end justify-between gap-3">
+            <h3 className="text-sm font-semibold text-slate-800">
+              컴플라이언스 매핑
+            </h3>
+            <a
+              href={ISMSP_META.official_url}
+              target="_blank"
+              rel="noreferrer"
+              className="no-print text-[11px] text-slate-500 hover:text-brand hover:underline"
+            >
+              ISMS-P 통제항목 출처: KISA ISMS-P ↗
+            </a>
           </div>
+          <div className="space-y-3">
+            {result.compliance_mapping.map((row, i) => {
+              const ctrl = lookupControl(row.control_id);
+              return (
+                <div
+                  key={i}
+                  className="rounded-md border border-slate-200 bg-slate-50/50 p-3 print:break-inside-avoid"
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <div className="flex items-baseline gap-2">
+                      {ctrl && (
+                        <span className="rounded bg-brand text-white px-1.5 py-0.5 text-[10px] font-mono">
+                          {ctrl.id}
+                        </span>
+                      )}
+                      <span className="text-sm font-medium text-slate-900">
+                        {ctrl ? ctrl.name : row.requirement}
+                      </span>
+                      {ctrl && (
+                        <span className="text-[11px] text-slate-500">
+                          · {ctrl.category}
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {row.covered_by.map((id) => {
+                        const p = PRODUCT_BY_ID.get(id);
+                        return (
+                          <span
+                            key={id}
+                            className="rounded-md bg-brand-light px-2 py-0.5 text-xs font-medium text-brand-dark"
+                          >
+                            {p?.name_ko ?? id}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  {ctrl?.summary && (
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+                      {ctrl.summary}
+                    </p>
+                  )}
+                  {!ctrl && row.requirement && (
+                    <p className="mt-1.5 text-[11px] italic text-slate-500">
+                      ISMS-P 통제항목 카탈로그에서 자동 매칭되지 않은 요구사항입니다.
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <p className="mt-3 text-[11px] text-slate-500">
+            * 본 매핑은 {ISMSP_META.source} 공개 자료 기반의 비공식 정리이며,
+            실제 인증 심사 시에는 공식 안내서가 우선합니다.
+          </p>
         </section>
       )}
 

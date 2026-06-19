@@ -9,6 +9,7 @@ export interface ProductRecommendation {
 
 export interface ComplianceMapping {
   requirement: string;
+  control_id?: string;
   covered_by: string[];
 }
 
@@ -26,6 +27,8 @@ export const RECOMMENDATION_TOOL_SCHEMA = {
   description:
     "Submit the AhnLab solution recommendation for the given customer profile. " +
     "Use only the product_ids that exist in the provided product knowledge base. " +
+    "When a compliance requirement maps to an ISMS-P control in the provided controls catalog, " +
+    "set control_id to the exact id from that catalog (e.g., '2.10.1'). " +
     "Group products into 3 phases by priority (1 = 즉시 도입, 2 = 6개월 내, 3 = 12개월 내).",
   input_schema: {
     type: "object",
@@ -49,7 +52,8 @@ export const RECOMMENDATION_TOOL_SCHEMA = {
             priority: {
               type: "integer",
               enum: [1, 2, 3],
-              description: "1=Phase 1 즉시 도입, 2=Phase 2 6개월, 3=Phase 3 12개월",
+              description:
+                "1=Phase 1 즉시 도입, 2=Phase 2 6개월, 3=Phase 3 12개월",
             },
             rationale: {
               type: "string",
@@ -68,14 +72,20 @@ export const RECOMMENDATION_TOOL_SCHEMA = {
       compliance_mapping: {
         type: "array",
         description:
-          "고객의 컴플라이언스 요구별로 어떤 추천 제품이 충족에 기여하는지 매핑.",
+          "고객의 컴플라이언스 요구별로 어떤 추천 제품이 충족에 기여하는지 매핑. " +
+          "ISMS-P 요구는 가능한 한 ISMS-P 통제항목(예: '2.10.1 보안시스템 운영')으로 정규화하고 control_id를 채우세요.",
         items: {
           type: "object",
           properties: {
             requirement: {
               type: "string",
               description:
-                "구체적 요구 또는 통제항목 (예: 'ISMS-P 2.10.1 악성코드 통제', '망분리 의무').",
+                "구체적 요구 또는 통제항목명. ISMS-P 통제는 'ISMS-P 2.10.1 보안시스템 운영' 형식.",
+            },
+            control_id: {
+              type: "string",
+              description:
+                "ISMS-P 통제항목인 경우 controls 카탈로그의 id (예: '2.10.1'). 다른 프레임워크면 생략.",
             },
             covered_by: {
               type: "array",
