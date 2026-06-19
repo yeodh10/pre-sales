@@ -3,6 +3,7 @@
 import { useState } from "react";
 import CustomerProfileForm from "@/components/CustomerProfileForm";
 import RecommendationReport from "@/components/RecommendationReport";
+import ReportSkeleton from "@/components/ReportSkeleton";
 import type { CustomerProfile } from "@/lib/types";
 import type { RecommendationResult } from "@/lib/recommendation";
 
@@ -50,12 +51,7 @@ export default function Home() {
 
         <CustomerProfileForm onSubmit={handleSubmit} submitting={loading} />
 
-        {loading && (
-          <div className="flex items-center gap-3 rounded-lg border border-brand/20 bg-brand-light p-4 text-sm text-brand-dark">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-brand" />
-            Claude로 추천을 생성하는 중…
-          </div>
-        )}
+        {loading && <ReportSkeleton />}
 
         {error && (
           <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">

@@ -138,6 +138,8 @@ export default function RecommendationReport({
         <ContextChips profile={profile} />
       </header>
 
+      <RoadmapTimeline recommendations={result.recommendations} />
+
       <section>
         <h3 className="mb-3 text-sm font-semibold text-slate-800">
           추천 제품 조합 ({result.recommendations.length})
@@ -266,6 +268,78 @@ export default function RecommendationReport({
         실제 도입 검토는 안랩 공식 SE의 확인을 거쳐야 합니다.
       </footer>
     </article>
+  );
+}
+
+function RoadmapTimeline({
+  recommendations,
+}: {
+  recommendations: ProductRecommendation[];
+}) {
+  const phases = [1, 2, 3] as const;
+  const PHASE_DOT: Record<number, string> = {
+    1: "bg-red-500",
+    2: "bg-amber-500",
+    3: "bg-slate-400",
+  };
+  const PHASE_CAPTION: Record<number, string> = {
+    1: "즉시 도입",
+    2: "6개월 내",
+    3: "12개월 내",
+  };
+
+  // 비어있는 phase는 건너뛰되, 적어도 하나는 있어야 표시
+  const nonEmpty = phases.filter(
+    (p) => recommendations.some((r) => r.priority === p),
+  );
+  if (nonEmpty.length === 0) return null;
+
+  return (
+    <section className="rounded-lg border border-slate-200 bg-white p-5 print:break-inside-avoid">
+      <h3 className="mb-4 text-sm font-semibold text-slate-800">도입 로드맵</h3>
+      <div className="grid gap-3 sm:grid-cols-3">
+        {nonEmpty.map((phase, idx) => {
+          const items = recommendations
+            .filter((r) => r.priority === phase)
+            .sort((a, b) => a.product_id.localeCompare(b.product_id));
+          return (
+            <div key={phase} className="relative">
+              <div className="flex items-center gap-2">
+                <span
+                  className={`h-2.5 w-2.5 rounded-full ${PHASE_DOT[phase]}`}
+                />
+                <span className="text-xs font-semibold text-slate-900">
+                  Phase {phase}
+                </span>
+                <span className="text-[11px] text-slate-500">
+                  {PHASE_CAPTION[phase]}
+                </span>
+              </div>
+              <div className="mt-2 ml-[5px] border-l-2 border-dashed border-slate-200 pl-3.5 pb-1">
+                <div className="flex flex-wrap gap-1.5">
+                  {items.map((r) => {
+                    const p = PRODUCT_BY_ID.get(r.product_id);
+                    return (
+                      <span
+                        key={r.product_id}
+                        className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700"
+                      >
+                        {p?.name_ko ?? r.product_id}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+              {idx < nonEmpty.length - 1 && (
+                <span className="absolute right-0 top-1 hidden text-slate-300 sm:block">
+                  →
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 

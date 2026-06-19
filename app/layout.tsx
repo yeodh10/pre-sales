@@ -3,9 +3,21 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "안랩 Solution Fit Co-pilot",
+  title: {
+    default: "안랩 Solution Fit Co-pilot",
+    template: "%s | 안랩 Solution Fit Co-pilot",
+  },
   description:
     "고객 환경을 입력하면 안랩 제품 조합과 컴플라이언스 매핑을 자동 제안하는 프리세일즈 코파일럿 (비공식 포트폴리오 데모).",
+  applicationName: "안랩 Solution Fit Co-pilot",
+  openGraph: {
+    title: "안랩 Solution Fit Co-pilot",
+    description:
+      "요구사항 입력 → 안랩 제품 조합 추천 → ISMS-P 컴플라이언스 매핑까지 자동 생성하는 프리세일즈 데모.",
+    type: "website",
+    locale: "ko_KR",
+  },
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({
