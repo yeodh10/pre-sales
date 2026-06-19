@@ -21,6 +21,10 @@ npm run dev
 
 브라우저: <http://localhost:3000>
 
+## 배포
+
+면접 데모용 Vercel 배포 절차는 [`DEPLOY.md`](./DEPLOY.md) 참고. URL 하나로 어디서든 데모 가능.
+
 ## 현재 진행 상황
 
 - [x] **Phase 1** — Next.js + Tailwind 골격, 안랩 제품 KB(JSON), 고객 프로파일 입력 폼
