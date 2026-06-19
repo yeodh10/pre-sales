@@ -1,5 +1,7 @@
 # 안랩 Solution Fit Co-pilot
 
+[![CI](https://github.com/yeodh10/pre-sales/actions/workflows/ci.yml/badge.svg)](https://github.com/yeodh10/pre-sales/actions/workflows/ci.yml)
+
 고객 환경/요구사항을 입력하면 → 적합한 안랩 제품 조합을 추천하고 → 컴플라이언스 충족 매핑 + 도입 우선순위를 포함한 제안 요약을 자동 생성하는 **프리세일즈 코파일럿** (포트폴리오 데모).
 
 > 비공식 개인 포트폴리오 데모입니다. 안랩과 무관하며, 공개된 자료만 사용했습니다.
