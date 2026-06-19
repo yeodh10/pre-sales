@@ -21,6 +21,18 @@ npm run dev
 
 브라우저: <http://localhost:3000>
 
+## 테스트
+
+룰 엔진과 검증 레이어의 회귀를 막는 단위 테스트 (vitest, 23 cases).
+
+```bash
+npm test          # 1회 실행
+npm run test:watch
+```
+
+주요 보장: "OT면 EPS가 항상 Phase 1", "추천 product_id는 모두 KB에 존재",
+"ISMS-P 미선택 시 통제 매핑 없음", "환각 product_id/control_id 자동 제거" 등.
+
 ## 배포
 
 면접 데모용 Vercel 배포 절차는 [`DEPLOY.md`](./DEPLOY.md) 참고. URL 하나로 어디서든 데모 가능.
