@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { generateRecommendation } from "@/lib/anthropic";
+import { sanitizeRecommendation } from "@/lib/validation";
 import type { CustomerProfile } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -24,7 +25,14 @@ export async function POST(req: Request) {
   }
 
   try {
-    const result = await generateRecommendation(profile);
+    const raw = await generateRecommendation(profile);
+    const { result, report } = sanitizeRecommendation(raw);
+    if (
+      report.droppedRecommendations.length > 0 ||
+      report.droppedComplianceIds.length > 0
+    ) {
+      console.warn("[/api/recommend] dropped invalid product_ids:", report);
+    }
     return NextResponse.json(result);
   } catch (err) {
     const message =

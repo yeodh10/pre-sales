@@ -67,11 +67,8 @@ export default function Home() {
           </div>
         )}
 
-        {result && (
-          <RecommendationReport
-            result={result}
-            customerName={profile?.companyName || undefined}
-          />
+        {result && profile && (
+          <RecommendationReport result={result} profile={profile} />
         )}
       </div>
 

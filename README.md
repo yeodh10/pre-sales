@@ -24,9 +24,9 @@ npm run dev
 ## 현재 진행 상황
 
 - [x] **Phase 1** — Next.js + Tailwind 골격, 안랩 제품 KB(JSON), 고객 프로파일 입력 폼
-- [ ] Phase 2 — 추천 엔진 (`/api/recommend`)
-- [ ] Phase 3 — 제안 요약 렌더 + 컴플라이언스 매핑 + Markdown/PDF 내보내기
-- [ ] Phase 4 (Stretch) — ISMS-P RAG 인용, 제안서 PDF 템플릿
+- [x] **Phase 2** — 추천 엔진 (`/api/recommend`) + Claude Sonnet tool_use 강제
+- [x] **Phase 3** — 제안 요약 렌더, 컴플라이언스 매핑 표, KB 외 product_id 검증/필터링, Markdown 다운로드, 인쇄/PDF 저장 스타일
+- [ ] Phase 4 (Stretch) — ISMS-P RAG 인용, 제안서 PDF 템플릿 다듬기
 
 ## 제품 KB
 

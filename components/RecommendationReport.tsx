@@ -1,10 +1,18 @@
 "use client";
 
 import productsKb from "@/data/ahnlab-products.json";
+import {
+  COMPLIANCE_OPTIONS,
+  INDUSTRY_OPTIONS,
+  PAIN_OPTIONS,
+  SIZE_OPTIONS,
+} from "@/lib/options";
+import { buildMarkdown, downloadMarkdown } from "@/lib/exportMarkdown";
 import type {
   ProductRecommendation,
   RecommendationResult,
 } from "@/lib/recommendation";
+import type { CustomerProfile } from "@/lib/types";
 
 interface ProductKbItem {
   id: string;
@@ -32,36 +40,94 @@ const PHASE_TONE: Record<number, string> = {
   3: "bg-slate-50 text-slate-700 ring-slate-200",
 };
 
+function lookupLabel<T extends string>(
+  options: { value: T; label: string }[],
+  value: T,
+): string {
+  return options.find((o) => o.value === value)?.label ?? value;
+}
+
+function formatDate(iso?: string): string {
+  const d = iso ? new Date(iso) : new Date();
+  return d.toLocaleDateString("ko-KR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 export default function RecommendationReport({
   result,
-  customerName,
+  profile,
 }: {
   result: RecommendationResult;
-  customerName?: string;
+  profile: CustomerProfile;
 }) {
   const phases = [1, 2, 3] as const;
+  const customer = profile.companyName || "고객사";
+
+  const handleDownloadMd = () => {
+    const md = buildMarkdown(profile, result);
+    const safe = customer.replace(/[^\p{L}\p{N}_-]+/gu, "_");
+    downloadMarkdown(`AhnLab_제안_${safe}.md`, md);
+  };
 
   return (
-    <article className="space-y-6">
+    <article
+      id="recommendation-report"
+      className="print-area space-y-6"
+    >
       <header className="rounded-lg border border-slate-200 bg-white p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="flex-1 min-w-0">
             <p className="text-xs font-medium uppercase tracking-wide text-brand">
               제안 요약
             </p>
             <h2 className="mt-1 text-xl font-bold text-slate-900">
-              {customerName ?? "고객"}을 위한 안랩 솔루션 제안
+              {customer}을 위한 안랩 솔루션 제안
             </h2>
+            <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-500">
+              <span>{lookupLabel(INDUSTRY_OPTIONS, profile.industry)}</span>
+              <span>·</span>
+              <span>{lookupLabel(SIZE_OPTIONS, profile.size)}</span>
+              {profile.endpointCount && (
+                <>
+                  <span>·</span>
+                  <span>엔드포인트 {profile.endpointCount.toLocaleString()}대</span>
+                </>
+              )}
+              <span>·</span>
+              <span>생성일 {formatDate(result.generated_at)}</span>
+              {result.model_used && (
+                <>
+                  <span>·</span>
+                  <span>{result.model_used}</span>
+                </>
+              )}
+            </div>
             <p className="mt-3 text-sm leading-relaxed text-slate-700">
               {result.summary}
             </p>
           </div>
-          {result.model_used && (
-            <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-600">
-              {result.model_used}
-            </span>
-          )}
+          <div className="no-print flex shrink-0 gap-2">
+            <button
+              type="button"
+              onClick={handleDownloadMd}
+              className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+            >
+              Markdown 다운로드
+            </button>
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="rounded-md bg-brand px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-dark"
+            >
+              인쇄 / PDF 저장
+            </button>
+          </div>
         </div>
+
+        <ContextChips profile={profile} />
       </header>
 
       <section>
@@ -119,10 +185,10 @@ export default function RecommendationReport({
                     key={i}
                     className="border-b border-slate-100 last:border-b-0"
                   >
-                    <td className="py-2 pr-4 text-slate-700">
+                    <td className="py-2 pr-4 align-top text-slate-700">
                       {row.requirement}
                     </td>
-                    <td className="py-2">
+                    <td className="py-2 align-top">
                       <div className="flex flex-wrap gap-1.5">
                         {row.covered_by.map((id) => {
                           const p = PRODUCT_BY_ID.get(id);
@@ -157,7 +223,41 @@ export default function RecommendationReport({
           </ul>
         </section>
       )}
+
+      <footer className="text-xs text-slate-500 print:mt-8">
+        본 제안 요약은 공개 자료 기반의 비공식 포트폴리오 데모 결과이며,
+        실제 도입 검토는 안랩 공식 SE의 확인을 거쳐야 합니다.
+      </footer>
     </article>
+  );
+}
+
+function ContextChips({ profile }: { profile: CustomerProfile }) {
+  const items: string[] = [];
+  if (profile.infrastructure.networkSeparation) items.push("망분리");
+  if (profile.infrastructure.otEnvironment) items.push("OT 환경");
+  if (profile.infrastructure.hasEdr) items.push("EDR 보유");
+  if (profile.infrastructure.hasSoc) items.push("자체 SOC");
+  if (profile.infrastructure.cloudUsage !== "none")
+    items.push(`클라우드: ${profile.infrastructure.cloudUsage}`);
+  profile.painPoints.forEach((p) =>
+    items.push(lookupLabel(PAIN_OPTIONS, p)),
+  );
+  profile.compliance.forEach((c) =>
+    items.push(lookupLabel(COMPLIANCE_OPTIONS, c)),
+  );
+  if (items.length === 0) return null;
+  return (
+    <div className="mt-3 flex flex-wrap gap-1.5">
+      {items.map((label, i) => (
+        <span
+          key={i}
+          className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] text-slate-700"
+        >
+          {label}
+        </span>
+      ))}
+    </div>
   );
 }
 
@@ -169,10 +269,10 @@ function ProductCard({ rec }: { rec: ProductRecommendation }) {
   const tagline = p?.tagline;
 
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-4">
+    <div className="rounded-lg border border-slate-200 bg-white p-4 print:break-inside-avoid">
       <div className="flex items-start justify-between gap-3">
-        <div>
-          <div className="flex items-center gap-2">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
             <h4 className="text-sm font-semibold text-slate-900">
               {displayName}
             </h4>
@@ -189,7 +289,7 @@ function ProductCard({ rec }: { rec: ProductRecommendation }) {
             href={p.source_url}
             target="_blank"
             rel="noreferrer"
-            className="shrink-0 text-[11px] font-medium text-brand hover:underline"
+            className="no-print shrink-0 text-[11px] font-medium text-brand hover:underline"
           >
             공식 소스 ↗
           </a>
