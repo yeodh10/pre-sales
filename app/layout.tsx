@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,8 +17,8 @@ export default function RootLayout({
     <html lang="ko">
       <body className="min-h-screen">
         <header className="border-b border-slate-200 bg-white">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            <div className="flex items-center gap-3">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+            <Link href="/" className="flex items-center gap-3">
               <div className="h-8 w-8 rounded-md bg-brand text-white grid place-items-center font-bold">
                 A
               </div>
@@ -29,10 +30,26 @@ export default function RootLayout({
                   Pre-sales recommendation demo
                 </div>
               </div>
+            </Link>
+            <div className="flex items-center gap-3">
+              <nav className="flex items-center gap-1 text-sm">
+                <Link
+                  href="/"
+                  className="rounded-md px-3 py-1.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                >
+                  추천
+                </Link>
+                <Link
+                  href="/products"
+                  className="rounded-md px-3 py-1.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                >
+                  제품 카탈로그
+                </Link>
+              </nav>
+              <span className="hidden rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800 ring-1 ring-amber-200 sm:inline">
+                비공식 데모 · 안랩과 무관
+              </span>
             </div>
-            <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800 ring-1 ring-amber-200">
-              비공식 개인 포트폴리오 데모 · 안랩과 무관
-            </span>
           </div>
         </header>
         <main className="mx-auto max-w-6xl px-6 py-8">{children}</main>
