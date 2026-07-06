@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import productsKb from "@/data/ahnlab-products.json";
+import productsKb from "@/lib/kb";
 import {
   COMPLIANCE_OPTIONS,
   INDUSTRY_OPTIONS,
