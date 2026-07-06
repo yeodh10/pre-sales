@@ -75,7 +75,11 @@ LLM에게 KB와 함께 컨텍스트로 제공되어 `compliance_mapping.control_
 
 ## 제품 KB
 
-`data/ahnlab-products.json`에 13개 제품/서비스가 정리되어 있습니다.
+`data/products/<id>.json` — 제품마다 1파일 (13개 제품/서비스) + `_meta.json`.
+
+`lib/kb.ts`가 모듈 로드 시점에 스키마를 검증하며, **필수 필드 누락·id 중복·
+잘못된 `source_url` 발견 시 `next build`가 실패**합니다. 즉 KB 품질이 CI에서
+자동으로 강제됩니다.
 
 | 카테고리 | 제품 |
 | --- | --- |

@@ -1,4 +1,4 @@
-import productsKb from "@/data/ahnlab-products.json";
+import productsKb from "@/lib/kb";
 import ismspControls from "@/data/compliance/ismsp-controls.json";
 import type { RecommendationResult } from "./recommendation";
 

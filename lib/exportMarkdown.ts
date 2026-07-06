@@ -1,4 +1,4 @@
-import productsKb from "@/data/ahnlab-products.json";
+import productsKb from "@/lib/kb";
 import type { CustomerProfile } from "./types";
 import {
   COMPLIANCE_OPTIONS,

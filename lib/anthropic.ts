@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import productsKb from "@/data/ahnlab-products.json";
+import productsKb from "@/lib/kb";
 import ismspControls from "@/data/compliance/ismsp-controls.json";
 import type { CustomerProfile } from "./types";
 import {
