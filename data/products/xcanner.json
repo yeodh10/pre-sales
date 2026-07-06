@@ -1,0 +1,29 @@
+{
+  "id": "xcanner",
+  "name": "AhnLab Xcanner",
+  "name_ko": "안랩 Xcanner",
+  "category": "ot_scan",
+  "category_label": "특수목적시스템 악성코드 진단·치료",
+  "tagline": "에이전트 설치 불가한 특수목적시스템을 위한 휴대형 악성코드 진단·치료 솔루션",
+  "key_features": [
+    "USB 기반 오프라인 진단",
+    "에이전트리스 스캔",
+    "OT/ICS 시스템에 비파괴적 점검"
+  ],
+  "solves": [
+    "에이전트 설치 불가 환경",
+    "정기 OT 점검",
+    "납품 시 보안 검증"
+  ],
+  "fits_industry": [
+    "제조 (OT)",
+    "에너지",
+    "공공 인프라"
+  ],
+  "compliance_support": [
+    "주요정보통신기반시설 보호지침 (정기 점검)",
+    "ISMS-P 2.10.1 보안시스템 운영 (OT 적용)",
+    "ISMS-P 2.11.2 취약점 점검 및 조치"
+  ],
+  "source_url": "https://blog.ahnlab.com/2966"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "trusguard_dpx",
+  "name": "AhnLab TrusGuard DPX",
+  "name_ko": "안랩 트러스가드 DPX",
+  "category": "network_ddos",
+  "category_label": "DDoS 대응 (Anti-DDoS)",
+  "tagline": "복잡·고도화된 DDoS 공격을 인텔리전스 기반으로 차단해 서비스 가용성 보장",
+  "key_features": [
+    "L3/L4/L7 다층 DDoS 공격 탐지",
+    "복합 공격 패턴 인텔리전스 방어",
+    "실시간 트래픽 가시성과 모바일 모니터링"
+  ],
+  "solves": [
+    "DDoS 공격",
+    "서비스 가용성 위협",
+    "응답 지연"
+  ],
+  "fits_industry": [
+    "금융",
+    "공공",
+    "유통",
+    "이커머스"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.9.3 백업 및 복구관리 (가용성 확보)",
+    "전자금융감독규정 가용성 요건"
+  ],
+  "source_url": "https://www.ahnlab.com/en/product/all-products-and-services"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "v3",
+  "name": "AhnLab V3",
+  "name_ko": "안랩 V3",
+  "category": "endpoint_epp",
+  "category_label": "엔드포인트 안티멀웨어 (EPP)",
+  "tagline": "PC·서버·모바일 대상 차세대 안티멀웨어 — 글로벌 AV-TEST Top Product 다수 선정",
+  "key_features": [
+    "실시간 악성코드 탐지 및 치료",
+    "랜섬웨어 행위 기반 방어",
+    "PC·서버·모바일 멀티 플랫폼 지원"
+  ],
+  "solves": [
+    "랜섬웨어",
+    "악성코드",
+    "엔드포인트 기본 보호"
+  ],
+  "fits_industry": [
+    "제조",
+    "금융",
+    "공공",
+    "유통",
+    "중견·중소"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.10.1 보안시스템 운영",
+    "ISMS-P 2.10.6 업무용 단말기기 보안",
+    "개인정보보호법 안전성 확보조치 (단말 보호)"
+  ],
+  "source_url": "https://www.ahnlab.com/en/product/anti-malware"
+}

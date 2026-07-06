@@ -1,0 +1,31 @@
+{
+  "id": "epp",
+  "name": "AhnLab EPP",
+  "name_ko": "안랩 EPP",
+  "category": "endpoint_platform",
+  "category_label": "엔드포인트 통합 보안 플랫폼",
+  "tagline": "단일 에이전트·중앙 관리 콘솔로 여러 보안 솔루션을 연동·관리하는 엔드포인트 통합 플랫폼",
+  "key_features": [
+    "단일 에이전트 기반 다중 보안 솔루션 통합",
+    "중앙 관리 콘솔로 운영 효율화",
+    "V3·EDR·MDS 등 안랩 엔드포인트 솔루션 유기적 연동"
+  ],
+  "solves": [
+    "엔드포인트 보안 분산 운영",
+    "에이전트 충돌",
+    "관리 비용 증가"
+  ],
+  "fits_industry": [
+    "제조",
+    "금융",
+    "공공",
+    "유통",
+    "대기업"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.10.1 보안시스템 운영",
+    "ISMS-P 2.10.6 업무용 단말기기 보안",
+    "ISMS-P 2.10.7 보조저장매체 관리"
+  ],
+  "source_url": "https://mglobal.ahnlab.com/site/product/productSubDetail.do?prodSeq=11422"
+}

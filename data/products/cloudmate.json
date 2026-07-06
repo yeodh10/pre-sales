@@ -1,0 +1,29 @@
+{
+  "id": "cloudmate",
+  "name": "AhnLab CloudMate",
+  "name_ko": "안랩 CloudMate",
+  "category": "cloud_mssp",
+  "category_label": "클라우드 보안 MSP·CSPM 관제",
+  "tagline": "클라우드 MSP 서비스에 보안 관제(CSPM 포함)를 통합 제공",
+  "key_features": [
+    "AWS·Azure·GCP 멀티 클라우드 운영",
+    "CSPM 기반 보안 설정 형상 관리",
+    "안랩 보안 관제센터 연동 24/7 모니터링"
+  ],
+  "solves": [
+    "클라우드 설정 오류(misconfiguration)",
+    "멀티 클라우드 가시성",
+    "클라우드 관제 인력 부족"
+  ],
+  "fits_industry": [
+    "스타트업",
+    "중견·중소",
+    "공공 클라우드 전환",
+    "이커머스"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.10.2 클라우드 보안",
+    "CSAP 클라우드 보안 인증 대응"
+  ],
+  "source_url": "https://ahnlabcloudmate.com/service/acme/security"
+}

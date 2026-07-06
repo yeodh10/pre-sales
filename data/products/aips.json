@@ -1,0 +1,30 @@
+{
+  "id": "aips",
+  "name": "AhnLab AIPS",
+  "name_ko": "안랩 AIPS",
+  "category": "network_ips",
+  "category_label": "차세대 네트워크 침입방지 (IPS)",
+  "tagline": "고도화된 네트워크 공격을 시그니처·취약점 기반으로 탐지·차단하는 차세대 IPS",
+  "key_features": [
+    "국내 최대 수준의 공격 대응 시그니처",
+    "네트워크·OS·웹·애플리케이션 취약점 기반 공격 탐지",
+    "악성코드 기반 공격 차단"
+  ],
+  "solves": [
+    "취약점 익스플로잇",
+    "웹 공격",
+    "악성코드 전파",
+    "내부 위협 차단"
+  ],
+  "fits_industry": [
+    "제조",
+    "금융",
+    "공공",
+    "유통"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.6.1 네트워크 접근",
+    "ISMS-P 2.11.2 취약점 점검 및 조치"
+  ],
+  "source_url": "https://www.ahnlab.com/kr/site/product/productView.do?prodSeq=131"
+}
