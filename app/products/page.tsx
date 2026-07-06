@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import productsKb from "@/data/ahnlab-products.json";
+import productsKb from "@/lib/kb";
 
 export const metadata: Metadata = {
   title: "안랩 제품 카탈로그 | Solution Fit Co-pilot",

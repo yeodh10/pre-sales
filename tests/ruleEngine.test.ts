@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import productsKb from "@/data/ahnlab-products.json";
+import productsKb from "@/lib/kb";
 import ismspControls from "@/data/compliance/ismsp-controls.json";
 import { ruleBasedRecommendation } from "@/lib/ruleEngine";
 import type { CustomerProfile, Infrastructure } from "@/lib/types";
@@ -21,18 +21,19 @@ const baseInfra: Infrastructure = {
   otEnvironment: false,
 };
 
-function profile(overrides: Partial<CustomerProfile> = {}): CustomerProfile {
+type ProfileOverrides = Omit<Partial<CustomerProfile>, "infrastructure"> & {
+  infrastructure?: Partial<Infrastructure>;
+};
+
+function profile(overrides: ProfileOverrides = {}): CustomerProfile {
+  const { infrastructure, ...rest } = overrides;
   return {
     industry: "manufacturing",
     size: "mid",
-    infrastructure: { ...baseInfra, ...(overrides.infrastructure ?? {}) },
     painPoints: [],
     compliance: [],
-    ...overrides,
-    // infrastructure는 위에서 머지했으므로 overrides의 것을 다시 덮어쓰지 않도록 보정
-    ...(overrides.infrastructure
-      ? { infrastructure: { ...baseInfra, ...overrides.infrastructure } }
-      : {}),
+    ...rest,
+    infrastructure: { ...baseInfra, ...(infrastructure ?? {}) },
   };
 }
 
