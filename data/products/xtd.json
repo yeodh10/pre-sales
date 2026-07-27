@@ -1,0 +1,29 @@
+{
+  "id": "xtd",
+  "name": "AhnLab XTD",
+  "name_ko": "안랩 XTD",
+  "category": "ot_network",
+  "category_label": "OT 네트워크 가시성·위협 탐지",
+  "tagline": "OT 자산 가시성 확보와 OT망 내부 위협 탐지·대응 (나온웍스 기술 결합)",
+  "key_features": [
+    "OT 프로토콜 가시화 및 자산 인벤토리",
+    "OT 네트워크 이상행위 탐지",
+    "IT/OT 경계 위협 대응"
+  ],
+  "solves": [
+    "OT 자산 가시성 부재",
+    "OT 내부 위협",
+    "IT-OT 융합 위협"
+  ],
+  "fits_industry": [
+    "제조 (OT)",
+    "에너지",
+    "유틸리티",
+    "스마트팩토리"
+  ],
+  "compliance_support": [
+    "주요정보통신기반시설 보호지침",
+    "스마트공장 보안 가이드"
+  ],
+  "source_url": "https://blog.ahnlab.com/2966"
+}

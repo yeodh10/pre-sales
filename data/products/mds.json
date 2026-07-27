@@ -1,0 +1,32 @@
+{
+  "id": "mds",
+  "name": "AhnLab MDS",
+  "name_ko": "안랩 MDS",
+  "category": "network_apt",
+  "category_label": "네트워크·엔드포인트 통합 APT 대응 (샌드박스)",
+  "tagline": "샌드박스 기반 지능형 위협(APT) 대응 — 네트워크와 엔드포인트를 단일 아키텍처로 보호",
+  "key_features": [
+    "다중 분석 엔진 샌드박싱",
+    "이메일·웹·파일 전송 채널 위협 차단",
+    "엔드포인트 에이전트 연동으로 침해 단말 격리·치료",
+    "APT 라이프사이클 단계별 능동 대응"
+  ],
+  "solves": [
+    "지능형 지속 위협(APT)",
+    "이메일 기반 침투",
+    "제로데이 악성코드",
+    "내부 확산"
+  ],
+  "fits_industry": [
+    "금융",
+    "공공",
+    "대기업",
+    "제조"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.11.1 사고 예방 및 대응체계 구축",
+    "ISMS-P 2.11.3 이상행위 분석 및 모니터링",
+    "전자금융감독규정 침해 대응 요건"
+  ],
+  "source_url": "https://mglobal.ahnlab.com/site/product/productSubDetail.do?prodSeq=15231"
+}

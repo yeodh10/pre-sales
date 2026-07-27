@@ -18,3 +18,36 @@ body {
   font-family: ui-sans-serif, system-ui, -apple-system, "Pretendard",
     "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
 }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 12mm;
+  }
+  body {
+    background: white;
+  }
+  .no-print {
+    display: none !important;
+  }
+  /* 인쇄 시 리포트만 남기고 폼/헤더/사이드바 모두 숨김 */
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+  }
+  .print-area section,
+  .print-area header,
+  .print-area article > div {
+    break-inside: avoid;
+  }
+}

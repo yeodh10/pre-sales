@@ -1,0 +1,33 @@
+{
+  "id": "trusguard",
+  "name": "AhnLab TrusGuard",
+  "name_ko": "안랩 트러스가드",
+  "category": "network_ngfw",
+  "category_label": "차세대 통합 네트워크 방화벽 (NGFW)",
+  "tagline": "방화벽·IPS·앱 제어·VPN·AV·안티스팸·C&C 탐지를 통합한 NGFW",
+  "key_features": [
+    "Advanced A-TEAM 아키텍처 기반 고성능 처리",
+    "FW + IPS + App Control + VPN + Anti-Virus + Anti-Spam 통합",
+    "C&C 통신 탐지 및 차단",
+    "안랩 엔드포인트 솔루션과 위협 정보 연동"
+  ],
+  "solves": [
+    "경계 방어",
+    "외부 침입",
+    "VPN 보안",
+    "C&C 통신"
+  ],
+  "fits_industry": [
+    "제조",
+    "금융",
+    "공공",
+    "유통",
+    "중견·중소"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.6.1 네트워크 접근",
+    "ISMS-P 2.6.7 인터넷 접속 통제",
+    "망분리 가이드라인 (경계 보호)"
+  ],
+  "source_url": "https://m.ahnlab.com/kr/site/contentscenter/ahnlabTv.do?conteSeq=379"
+}

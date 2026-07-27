@@ -1,0 +1,34 @@
+{
+  "id": "eps",
+  "name": "AhnLab EPS",
+  "name_ko": "안랩 EPS",
+  "category": "ot_endpoint",
+  "category_label": "OT/특수목적시스템 엔드포인트 보안",
+  "tagline": "ICS·공장제어·POS·키오스크·ATM 등 특수목적시스템 전용 OT 엔드포인트 보안",
+  "key_features": [
+    "화이트리스트 기반 폐쇄망 보호",
+    "저사양·레거시 OS 대응 (Windows XP/7 등 EoS 환경)",
+    "변경 통제 및 무결성 보호",
+    "오프라인·간헐적 연결 환경 운영"
+  ],
+  "solves": [
+    "폐쇄망 위협",
+    "레거시 설비 보안",
+    "산업 시스템 무결성",
+    "패치 불가 환경"
+  ],
+  "fits_industry": [
+    "제조 (OT)",
+    "에너지",
+    "유틸리티",
+    "유통 POS",
+    "금융 ATM"
+  ],
+  "compliance_support": [
+    "망분리 가이드라인 (폐쇄망 단말 보호)",
+    "ISMS-P 2.10.1 보안시스템 운영 (OT 적용)",
+    "ISMS-P 2.10.8 패치관리 (제한적 OT 환경)",
+    "주요정보통신기반시설 보호지침"
+  ],
+  "source_url": "https://mglobal.ahnlab.com/site/product/productSubDetail.do?prodSeq=10003"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "tms",
+  "name": "AhnLab TMS",
+  "name_ko": "안랩 TMS",
+  "category": "management_console",
+  "category_label": "통합 위협 관리 플랫폼 (Threat Management)",
+  "tagline": "다중 보안 솔루션을 단일 플랫폼에서 ML 기반 인텔리전트 분석으로 관제",
+  "key_features": [
+    "다중 보안 장비 통합 관제",
+    "ML 기반 이벤트 상관분석",
+    "통합 대시보드 및 정책 관리"
+  ],
+  "solves": [
+    "보안 이벤트 분산",
+    "관제 인력 부족",
+    "통합 가시성 부재"
+  ],
+  "fits_industry": [
+    "금융",
+    "공공",
+    "대기업",
+    "제조"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.9.4 로그 및 접속기록 관리",
+    "ISMS-P 2.9.5 로그 및 접속기록 점검",
+    "ISMS-P 2.11.3 이상행위 분석 및 모니터링"
+  ],
+  "source_url": "https://www.ahnlab.com/en/product/all-products-and-services"
+}

@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "안랩 Solution Fit Co-pilot",
+  title: {
+    default: "안랩 Solution Fit Co-pilot",
+    template: "%s | 안랩 Solution Fit Co-pilot",
+  },
   description:
-    "고객 환경을 입력하면 안랩 제품 조합과 컴플라이언스 매핑을 자동 제안하는 프리세일즈 코파일럿 (비공식 포트폴리오 데모).",
+    "고객 환경을 입력하면 안랩 제품 조합과 컴플라이언스 매핑을 자동 제안하는 프리세일즈 추천 시스템 (비공식 기술 데모).",
+  applicationName: "안랩 Solution Fit Co-pilot",
+  openGraph: {
+    title: "안랩 Solution Fit Co-pilot",
+    description:
+      "요구사항 입력 → 안랩 제품 조합 추천 → ISMS-P 컴플라이언스 매핑까지 자동 생성하는 프리세일즈 데모.",
+    type: "website",
+    locale: "ko_KR",
+  },
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({
@@ -16,8 +29,8 @@ export default function RootLayout({
     <html lang="ko">
       <body className="min-h-screen">
         <header className="border-b border-slate-200 bg-white">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            <div className="flex items-center gap-3">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 sm:px-6 sm:py-4">
+            <Link href="/" className="flex items-center gap-3">
               <div className="h-8 w-8 rounded-md bg-brand text-white grid place-items-center font-bold">
                 A
               </div>
@@ -29,14 +42,32 @@ export default function RootLayout({
                   Pre-sales recommendation demo
                 </div>
               </div>
+            </Link>
+            <div className="flex items-center gap-3">
+              <nav className="flex items-center gap-1 text-sm">
+                <Link
+                  href="/"
+                  className="rounded-md px-3 py-1.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                >
+                  추천
+                </Link>
+                <Link
+                  href="/products"
+                  className="rounded-md px-3 py-1.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                >
+                  제품 카탈로그
+                </Link>
+              </nav>
+              <span className="hidden rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800 ring-1 ring-amber-200 sm:inline">
+                비공식 데모 · 안랩과 무관
+              </span>
             </div>
-            <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800 ring-1 ring-amber-200">
-              비공식 개인 포트폴리오 데모 · 안랩과 무관
-            </span>
           </div>
         </header>
-        <main className="mx-auto max-w-6xl px-6 py-8">{children}</main>
-        <footer className="mx-auto max-w-6xl px-6 py-8 text-xs text-slate-500">
+        <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
+          {children}
+        </main>
+        <footer className="mx-auto max-w-6xl px-4 py-8 text-xs text-slate-500 sm:px-6">
           공개 자료 기반의 비공식 학습용 데모입니다. 실제 도입 검토는 안랩 공식 SE의
           확인을 거쳐 주십시오. 경쟁사 비교는 공개 정보에 한하며 과장·비방은 포함하지
           않습니다.

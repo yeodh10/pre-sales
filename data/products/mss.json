@@ -1,0 +1,33 @@
+{
+  "id": "mss",
+  "name": "AhnLab Managed Security Service (MSS)",
+  "name_ko": "안랩 보안관제 서비스",
+  "category": "service_mss",
+  "category_label": "보안 관제 서비스 (24/7 SOC)",
+  "tagline": "20년+ 누적 위협 인텔리전스 기반 24/7 보안 관제 서비스",
+  "key_features": [
+    "24/7 SOC 관제",
+    "위협 인텔리전스 기반 분석",
+    "침해 사고 대응(IR) 지원",
+    "온프레미스·클라우드 모두 대응"
+  ],
+  "solves": [
+    "관제 인력 부족",
+    "24시간 모니터링 부재",
+    "전문성 부족"
+  ],
+  "fits_industry": [
+    "금융",
+    "공공",
+    "제조",
+    "중견·중소"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.11.1 사고 예방 및 대응체계 구축",
+    "ISMS-P 2.11.3 이상행위 분석 및 모니터링",
+    "ISMS-P 2.11.4 사고 대응 훈련 및 개선",
+    "ISMS-P 2.11.5 사고 대응 및 복구",
+    "전자금융감독규정 관제 요건"
+  ],
+  "source_url": "https://mglobal.ahnlab.com/site/product/productSubDetail.do?prodSeq=1000"
+}

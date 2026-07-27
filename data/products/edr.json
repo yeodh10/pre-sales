@@ -1,0 +1,31 @@
+{
+  "id": "edr",
+  "name": "AhnLab EDR",
+  "name_ko": "안랩 EDR",
+  "category": "endpoint_edr",
+  "category_label": "엔드포인트 탐지·대응 (EDR)",
+  "tagline": "행위 기반 분석 엔진(MDP) 기반 엔드포인트 위협 모니터링·분석·대응 솔루션",
+  "key_features": [
+    "V3 연동 행위 기반 위협 탐지",
+    "EDR 애널라이저로 다이어그램·프로세스 트리·타임라인 분석",
+    "위협 헌팅 및 침해 경로 가시성 제공",
+    "MDR 서비스(보안 전문가 분석) 옵션 제공"
+  ],
+  "solves": [
+    "알려지지 않은 위협",
+    "내부 확산 탐지",
+    "침해 사고 조사",
+    "관제 인력 부족"
+  ],
+  "fits_industry": [
+    "제조",
+    "금융",
+    "공공",
+    "대기업"
+  ],
+  "compliance_support": [
+    "ISMS-P 2.11.1 사고 예방 및 대응체계 구축",
+    "ISMS-P 2.11.3 이상행위 분석 및 모니터링"
+  ],
+  "source_url": "https://www.ahnlab.com/en/product/endpoint-detection-response"
+}
