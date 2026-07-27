@@ -99,7 +99,7 @@ export default function Home() {
         <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900">
           <p className="font-semibold">디스클레이머</p>
           <p className="mt-1">
-            본 데모는 공개 자료 기반의 비공식 개인 포트폴리오이며 안랩과 무관합니다.
+            본 데모는 공개 자료 기반의 비공식 개인 기술 데모이며 안랩과 무관합니다.
             실제 솔루션 도입 검토는 안랩 공식 SE의 확인을 받으셔야 합니다.
           </p>
         </div>

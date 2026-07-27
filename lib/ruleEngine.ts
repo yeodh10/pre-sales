@@ -8,12 +8,8 @@ import type {
   RecommendationResult,
 } from "./recommendation";
 
-/**
- * 결정론적 룰 기반 추천 엔진.
- * LLM(Anthropic API)이 없거나 호출이 실패할 때의 폴백.
- * 핸드오프 문서의 "룰 + LLM 추론" 설계 중 룰 레이어이며,
- * 면접 데모에서 네트워크/키 문제로 LLM이 죽어도 데모가 멈추지 않게 한다.
- */
+// 결정론적 룰 기반 폴백 엔진 — API 키 부재나 LLM 호출 실패 시에도
+// 전체 추천 흐름이 동작하도록 보장한다 (graceful degradation).
 
 interface KbProduct {
   id: string;

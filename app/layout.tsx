@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | 안랩 Solution Fit Co-pilot",
   },
   description:
-    "고객 환경을 입력하면 안랩 제품 조합과 컴플라이언스 매핑을 자동 제안하는 프리세일즈 코파일럿 (비공식 포트폴리오 데모).",
+    "고객 환경을 입력하면 안랩 제품 조합과 컴플라이언스 매핑을 자동 제안하는 프리세일즈 추천 시스템 (비공식 기술 데모).",
   applicationName: "안랩 Solution Fit Co-pilot",
   openGraph: {
     title: "안랩 Solution Fit Co-pilot",

@@ -265,7 +265,7 @@ export default function RecommendationReport({
       )}
 
       <footer className="text-xs text-slate-500 print:mt-8">
-        본 제안 요약은 공개 자료 기반의 비공식 포트폴리오 데모 결과이며,
+        본 제안 요약은 공개 자료 기반의 비공식 기술 데모 결과이며,
         실제 도입 검토는 안랩 공식 SE의 확인을 거쳐야 합니다.
       </footer>
     </article>
